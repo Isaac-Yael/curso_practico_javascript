@@ -1,93 +1,63 @@
-// Código del cuadrado
-console.group('Cuadrado');
+// Función para calcular el cuadrado
 
-// const ladoCuadrado = 5;
-// console.log('Los lados del cuadrado miden: ' + ladoCuadrado + 'cm')
-
-function perimetroCuadrado(lado){
-    return lado * 4
-};
-// console.log('El perímetro del caudrado es: ' + perimetroCuadrado + 'cm')
-
-function areaCuadrada(lado){
-    return lado * lado
-}
-// console.log('El área del caudrado es: ' + areaCuadrada + 'cm^2')
-
-console.groupEnd();
-
-// Código del triángulo
-console.group('Triangulo');
-
-// const ladoTriangulo1 = 6;
-// const ladoTriangulo2 = 6;
-// const baseTriangulo = 4;
-
-// console.log('Los lados del triángulo miden: ' 
-//     + ladoTriangulo1 
-//     + 'cm, ' 
-//     + ladoTriangulo2 
-//     + 'cm y ' 
-//     + baseTriangulo 
-//     + 'cm'
-// );
-
-// const alturaTriangulo = 5.5;
-// console.log('Los altura del triángulo es de: ' + alturaTriangulo + 'cm')
-
-function perimetroTriangulo(ladoTriangulo1, ladoTriangulo2, baseTriangulo){
-    return ladoTriangulo1 + ladoTriangulo2 + baseTriangulo
-}
-// console.log('El perímetro del triangulo es: ' + perimetroTriangulo + 'cm')
-
-function areaTriangulo(base, altura){
-    return (base * altura) / 2
-}
-// console.log('El área del triángulo es: ' + areaTriangulo + 'cm^2')
-
-console.groupEnd();
-
-// Código del círculo
-console.group('Circulo');
-
-// const radio = 4
-// console.log('El radio del círculo es: ' + radio + 'cm')
-
-function diametroCirculo(radio){
-    return radio + radio
-}
-// console.log('El diámetro del círculo es: ' + diametro + 'cm')
-
-const pi = Math.PI;
-console.log('PI es: ' + pi)
-
-function circunferencia(radio){
-    const diametro = diametroCirculo(radio);
-    return diametro * pi
-}
-// console.log('La circunferencia del círculo es: ' + circunferencia + 'cm')
-
-function areaCirculo(radio){
-    return (radio * radio) * pi
-}
-// console.log('El área del círculo es: ' + areaCirculo + 'cm^2')
-
-console.groupEnd();
-
-// Aquí empieza el HTML
-
+perimetroCuadrado = (lado) => lado * 4
+areaCuadrada = (lado) => lado * lado
 function calcularPerimetroCuadrado(){
     const input = document.getElementById('inputCuadrado');
     const value = input.value;
-
     const perimetro = perimetroCuadrado(value);
     alert(perimetro)
 }
-
 function calcularAreaCuadrado(){
     const input = document.getElementById('inputCuadrado');
     const value = input.value;
-
+    
     const area = areaCuadrada(value);
     alert(area)
+}
+
+// Función para calcular el triángulo
+
+perimetroTriangulo = (lado1, lado2, base) => Number(lado1) + Number(lado2) + Number(base)
+areaTriangulo = (base, altura) => (Number(base) * Number(altura)) / 2
+function calcularPerimetroTriangulo(){
+    const base = document.getElementById('inputBaseTriangulo')
+    const lado1 = document.getElementById('inputLadoATriangulo')
+    const lado2 = document.getElementById('inputLadoBTriangulo')
+    const valueBase = base.value
+    const valueLado1 = lado1.value
+    const valueLado2 = lado2.value
+    const perimetroDeTriangulo = perimetroTriangulo(valueLado1, valueLado2, valueBase)
+    alert(perimetroDeTriangulo)
+}
+function calcularAreaTriangulo(){
+    const altura = document.getElementById('inputAlturaTriangulo')
+    const base = document.getElementById('inputBaseTriangulo')
+    const valueAltura = altura.value
+    const valueBase = base.value
+    const area = areaTriangulo(valueBase, valueAltura)
+    alert(area)
+}
+
+// Función para calcular el círculo
+
+diametroCirculo = (radio) => Number(radio) + Number(radio)
+const PI = Math.PI;
+
+circunferencia = (radio) => {
+    const diametro = diametroCirculo(radio);
+    return diametro * PI
+}
+areaCirculo = (radio) => (radio * radio) * PI
+function calcularCircunferenciaCirculo(){
+    const radio = document.getElementById('inputRadio')
+    const radioValue = radio.value
+    const circunferenciaCirculo = circunferencia(radioValue)
+    alert(circunferenciaCirculo)
+}
+function calcularAreaCirculo(){
+    const radio = document.getElementById('inputRadio')
+    const radioValue = radio.value
+    const areaDeCirculo = areaCirculo(radioValue)
+    alert(areaDeCirculo)
 }
